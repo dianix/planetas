@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Planetas</title>
+</head>
+
+<body>
+    <h1>Hola mundo</h1>
+
+    <script>
+        function getJSON(url) {
+            return new Promise(function() {
+                var ajax = new XMLHttpRequest();
+                var url = "data/earth-like-results.json";
+                ajax.open("GET", url);
+                ajax.send();
+                ajax.onreadystatechange = function(data) {
+                    if (ajax.readyState == 4) {
+                        resolve(JSON.parse(ajax.responseText));
+                    };
+                };
+            });
+        };
+        
+        getJSON("data/earth-like-results.json")
+        .then(function(mensaje){return(getJSON(mensaje.results[0]))})
+        .then(function(resultado){console.log(resultado)})
+
+    </script>
+</body>
+
+</html>
