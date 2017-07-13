@@ -4,31 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Planetas</title>
+    <link rel="stylesheet" href="static/materialize-css/dist/css/materialize.min.css">
 </head>
 
 <body>
-    <h1>Hola mundo</h1>
+    <header>
+        <nav>
+            <div class="nav-wrapper purple accent-4">
+                <a href="#" class="brand-logo center">Planetas</a>
+            </div>
+        </nav>
+    </header>
 
-    <script>
-        function getJSON(url) {
-            return new Promise(function() {
-                var ajax = new XMLHttpRequest();
-                var url = "data/earth-like-results.json";
-                ajax.open("GET", url);
-                ajax.send();
-                ajax.onreadystatechange = function(data) {
-                    if (ajax.readyState == 4) {
-                        resolve(JSON.parse(ajax.responseText));
-                    };
-                };
-            });
-        };
-        
-        getJSON("data/earth-like-results.json")
-        .then(function(mensaje){return(getJSON(mensaje.results[0]))})
-        .then(function(resultado){console.log(resultado)})
+    <main id="planetas-datos" class="container">
+        <div class="row">
+            <div class="col s12 m7">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="static/img/planeta.jpg">
+                        <span class="card-title">Nombre de planeta</span>
+                    </div>
+                    <div class="card-content">
+                        <h3><b>Descubierto en:</b> XXXX</h3>
+                        <h3><b>Periodo de órbita:</b> xxxxxxxxxx</h3>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Más información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-    </script>
+
+    <script src="static/js/main.js"></script>
 </body>
 
 </html>
